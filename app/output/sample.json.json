@@ -1,0 +1,1680 @@
+{
+  "title": "Amazon products reviews classification based on machine",
+  "outline": [
+    {
+      "level": "H1",
+      "text": "Amazon products reviews classification based on machine",
+      "page": 0
+    },
+    {
+      "level": "H1",
+      "text": "learning, deep learning methods and BERT",
+      "page": 0
+    },
+    {
+      "level": "H2",
+      "text": "Keywords:",
+      "page": 0
+    },
+    {
+      "level": "H2",
+      "text": "Deep learning",
+      "page": 0
+    },
+    {
+      "level": "H2",
+      "text": "Feature extraction",
+      "page": 0
+    },
+    {
+      "level": "H2",
+      "text": "Machine learning",
+      "page": 0
+    },
+    {
+      "level": "H2",
+      "text": "Sentiment analysis",
+      "page": 0
+    },
+    {
+      "level": "H2",
+      "text": "Transformer technique",
+      "page": 0
+    },
+    {
+      "level": "H2",
+      "text": "Corresponding Author:",
+      "page": 0
+    },
+    {
+      "level": "H2",
+      "text": "Saman Iftikhar",
+      "page": 0
+    },
+    {
+      "level": "H2",
+      "text": "Faculty of Computer Studies, Arab Open University",
+      "page": 0
+    },
+    {
+      "level": "H3",
+      "text": "Riyadh, Saudi Arabia",
+      "page": 0
+    },
+    {
+      "level": "H3",
+      "text": "Email: s.iftikhar@aou.edu.sa",
+      "page": 0
+    },
+    {
+      "level": "H3",
+      "text": "1. INTRODUCTION",
+      "page": 0
+    },
+    {
+      "level": "H3",
+      "text": "In the twenty-first century, the revolutionary growth in technology has changed the perspective by",
+      "page": 0
+    },
+    {
+      "level": "H3",
+      "text": "which things are done around the world. The comfortable availability of the internet and access to almost",
+      "page": 0
+    },
+    {
+      "level": "H3",
+      "text": "anywhere in the world has encouraged people to rely more on online services to fulfill their daily demands",
+      "page": 0
+    },
+    {
+      "level": "H3",
+      "text": "such as shopping, hiring, selling, staying updated with news, and using social media platforms. Online",
+      "page": 0
+    },
+    {
+      "level": "H3",
+      "text": "shopping is one of the most prominent domains that has seen tremendous uprising trends with this internet",
+      "page": 0
+    },
+    {
+      "level": "H3",
+      "text": "revolution. Several well-established e-commerce websites are already ruling the internet and more are being",
+      "page": 0
+    },
+    {
+      "level": "H3",
+      "text": "launched on daily basis [1]. People around the world have started relying more on those e-commerce sites to",
+      "page": 0
+    },
+    {
+      "level": "H2",
+      "text": "performed manually, and it involves an inspection or quality assurance team that goes through some of the",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "feedback to formalize a report stating complaints, improvements, and recommendations. Due to the involvement",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "of physical personnel, it becomes a time-consuming, less accurate, and costly task. Even after investing time and",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "money, all reviews cannot be covered because they are in bulk and add up quickly in real-time [7]. This creates",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "an urge for the development of an automated system that can automatically take those reviews as input, perform",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "text-based analysis also known as sentiment analysis (SA) over them, deduct the meanings inducted inside",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "them, and classify them as good, and bad, or neutral. This can help e-commerce platforms to be more productive",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "in terms of customer feedback understanding and can timely adopt the measures and methods they are currently",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "lacking. An automated system can also rectify the problem of not being able to cover all the reviews as it can perform",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "sentiment analysis and generate results within seconds therefore it can go through the whole corpus within no time.",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "Evolutionary research in the field of artificial intelligence has made it very easy to develop such an",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "automated system. The approaches of machine learning (ML) and deep learning (DL) are being widely used to",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "formulate self-working systems that are implemented in mainstream real-world businesses and companies to",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "increase productivity, reduce manual workforce, increase accuracy and maintain brisk speed [8]. Moreover, the",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "use of word embedding methods such as term frequency-inverse document frequency (TF-IDF), N-gram-based",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "feature extraction techniques, transformer-based methods, and topic modeling approaches are being extensively",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "used in the SA tasks in the domain of data analytics and engineering [9]. Keeping in view the aspects, the",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "proposed work starts with the acquisition of two datasets from Amazon. The acquired datasets contain user",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "reviews for cell phones and other products and are randomly chosen. Certain preprocessing steps are employed",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "on the data to cleanse it and make it ready for the upcoming phases. The reviews are labeled in positive and",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "negative classes based on their star rating out of 5 stars. For feature extraction, N-gram methods TF-IDF, bag",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "of words (BoW), and word embedding techniques global vectors (GloVe), and Word2vec are implemented.",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Bidirectional encoder representations (BERT) is also adopted to derive deep insights from data based on its",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "transformation layers. Certain ML classifiers including support vector machine (SVM), Naïve Bayes (NB),",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "random forest (RF), logistic regression (LR), and DL models including a custom convolutional neural network",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "(CNN) and long-short term memory (LSTM) are employed for classification. The results are evaluated based",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "on certain evaluation measures. The main contributions of proposed work are as:",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "a) Two datasets D1 and D2 have been acquired from Amazon. D1 is a collection of cell phone reviews,",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "while D2 is an amalgamation of D1 and random product reviews. Datasets are prepared and engineered",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "using various SA techniques.",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "b) The proposed work used both textual features extracted by TF-IDF, BoW and deep features extracted by",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Word2Vec, Glove, and classified them using ML and DL models, respectively.",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "c) Transformer-based model BERT is also implemented to classify features and later on, its results are",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "furniture dataset with LSVM classifier without TSA and 91% with TSA whereas the execution time is also",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "reduced to 43% when TSA is implemented. Li et al . [11] obtained a dataset based on 10,261 reviews performed",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "on musical instruments from Amazon. Analphabetic sign removal, lowercase conversion, and removal of",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "unnecessary words are among the preprocessing steps performed for data cleansing. The frequency of all the",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "words is calculated using TF-IDF and a term set is formulated based on 160 terms with the highest frequency.",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "WordNet and SentiWordNet are utilized as lexicons to map each word with a corresponding weight in the feature",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "space. To generate word embeddings, BERT is implemented where the included words are vectorized.",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "Bi-directional LSTM along with an attention scheme is used for feature classification where the model achieves",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "an accuracy of 96% after the adjustment of the loss rate. The proposed model performs better when compared",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "with other baseline methods using several evaluation metrics. Shrestha and Nasoz [12] retrieved 3.5 million",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "reviews conducted on random product categories from Amazon. The dataset contains all information about the",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "review, user, time, and date and is compared with the 5 stars baseline. Preprocessing steps such as hyperlinks,",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "unwanted space, stop words, informal words, and punctuation removal are performed on the corpus obtained.",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "For data vectorization and semantic information deduction, the paragraph vectors (PV) are utilized that perform",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "next-word prediction and provide context to the sample paragraphs. Both memory distribution (PV-DM) and bag",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "of words distribution (PV-DBOW) versions are implemented in the proposed work. After converting text-based",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "reviews to dimensional vectors, the input is given to gated recurrent unit (GRU) for the derivation of embedding",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "information. Finally, the output is fitted to the SVM classifier that achieves a maximum accuracy of 81.29% and",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "81.82% on embedding derived for reviews and products, respectively.",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "Elmurngi and Gherbi [13] obtained the reviews performed on clothing, shoes, and jewelry categories",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "on the Amazon platform. The dataset is divided into 5 classes based on its star rating while the empty rows are",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "rectified. String to word vector (STWV) is used as the filtration method that performs stop words removal and",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "tokenization. For feature selection, a combination of best first, subset evaluation, and genetic search is used.",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "The final stage of classification is performed with the help of NB, DT, LR, and SVM classifiers upon the",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "selected features. The LR classifier maintains accuracies of 81.61%, 80.09%, and 60.72% on clothing, shoes,",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "and jewelry datasets, respectively, and stands out among other classifiers. Rao and Sindhu [14] performed",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "sarcasm analysis on product reviews from Amazon. A random dataset comprising product reviews is retrieved",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "from Amazon that contains information about the brand, product identity, and some useful information about",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "the reviewer. Each review is treated as a separate document and its labeling is performed based on rating",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "polarity. The preprocessing includes tokenization, stemming, lemmatization, and labeling based on polarity.",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "Feature extraction is performed using TF-IDF and N-gram methods (uni, bi, and trigrams). The extracted",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "features are finally provided to certain ML classifiers SVM, KNN, and RF where the SVM classifier achieves",
+      "page": 2
+    },
+    {
+      "level": "H3",
+      "text": "a higher accuracy rate of 67.58% as compared to RF (62.34%) and KNN (61.08%). Wassan et al. [15]",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "(UGRNN) based frameworks, respectively. Dadhich and Thankachan [18] formulated a system that takes the",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "user reviews and comments obtained from Flipkart and Amazon as input, applies certain data cleansing steps,",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "performs feature extraction using the SentiWordNet algorithm, and classifies the data with the help of ML",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "classifiers NB, LR, RF, and KNN. The system achieves an overall accuracy of 91% with the Flipkart dataset.",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "Norinder and Norinder [19] collected an imbalanced reviews dataset from Amazon for five product and their",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "12 categories along with their star ratings. Non-alpha numeric values are removed from the data together with",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "stop words removal and tokenization using the NLTK toolkit. A deep architecture DNN is used for data",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "classification that comprises embedding, LSTM, and output layers. Conformal and mondrian predictions are",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "used for model calibration using the original data. The model shows accuracy rates ranging from 89.8% to",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "92.2% with an error rate of 12.5%.",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "Bhuvaneshwari et al. [20] employed data from Amazon containing 19,988 reviews on various products",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "where 15,000 reviews appear to have less than 100 words. 15,990 reviews are maintained for training and 3997",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "for testing. Some mandatory preprocessing steps such as URL, stop words, punctuation, and connecting words",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "removal are performed along with tokenization, stemming, and spelling correction. The skip-gram-based",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "Word2vec model is utilized to device word vectors from the prepared corpus. A Bi-LSTM model is formulated",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "that contains 100 parameters united and self-attention functionality. It is based on ReLU, CNN, pool, ully",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "connected, and classification layers. It used RMSProp as an optimizer and entropy as a loss function. The model",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "achieves an accuracy of over 85% when compared with standard CNN, Bi-directional gated recurrent unit",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "(BGRU), BCNN, and NB models along with decent training time. Nandal et al. [21] utilized a web crawler to",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "retrieve data on user reviews on Amazon products. The data contains information about the user, rating, review,",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "and URL. Vectorization, stop word removal, parts of speech (POS) tagging, stemming and lemmatization are",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "among the preprocessing steps employed. Aspect aggregation is employed to derive key aspects from the data.",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "The derived aspects and their polarities are given to the SVM classifier. Mean square error (MSE) is used as a",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "loss rate evaluator where the bipolar inputs show the minimum loss rate of 0.4% and the model’s validation",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "accuracy reaches 86%. Dey et al. [22] utilized a dataset from Amazon based on 147,000 reviews of various books.",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "Tokenization, stop word removal, and re-filling the missing values are some of the key preprocessing steps",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "employed. The feature extraction is performed using TF-IDF and classification is performed using the SVM and",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "NB classifiers. The LSVM classifier shows better accuracy (84%) as compared to NB (82%) Zhao et al. [23]",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "proposed a model for the SA of reviews given on e-commerce platforms including Amazon, eBay, and Taobao.",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "Data is passed through tokenization, lemmatization, and snowball stemming phases followed by a term weighting",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "phase based on least term frequency. The earthworm and bat feature selection algorithms are used to reduce feature",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "dimensionality and increase model briskness. The feature extraction is performed using Word2vec and TF methods.",
+      "page": 3
+    },
+    {
+      "level": "H3",
+      "text": "The LSIBA-ENN model achieves better recall and precision rates when compared with standalone NB, SVM, and",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "are a group of adjectives that describe the features of the product. Finally, the phase of classification is performed",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "to categorize the opinions into positive, negative, and neutral classes. SVM and NB are amongst the ML-based",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "classifiers used in this case that are integrated with SentiWordNet for polarity score computation. Results indicate",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "that NB achieves the highest accuracy score of 90.423% as compared to SVM’s score of 83.423%.",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "Alzahrani et al. [28] utilized the Amazon technology products reviews dataset and implemented",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "mandatory preprocessing steps such as stop words removal, tokenization, and speech tagging on it. The opinion",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "lexicon is utilized to compute sentiment scores. The integration of CNN and LSTM is formulated to classify",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "reviews into positive or negative classes. The standalone LSTM achieved an accuracy of 91.03% while the",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "integrated CNN-LSTM framework achieved an accuracy of 94%. Dadhich and Thankachan [18] performed",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "the SA and classification of product reviews provided on Amazon and Flipkart. They implemented certain data",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "preparation steps and generated a knowledge tree. Natural language toolkit is employed to generate a word",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "dictionary, compute word information, and extract textual features. Five ML classifiers are used to categorize",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "comments and reviews into their respective polarity classes including NB, LR, SentiWordNet, KNN, and RF.",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "The proposed model achieved an accuracy of 91.13% on a total of 79655 reviews. They integrated several DL",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "models including robustly optimized BERT (RoBERT), LSTM, GRU, and bidirectional LSTM (BiLSTM) to",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "perform SA of internet movie database (IMDb), American airline and Sentiment140 data corpora. Case",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "conversion and punctuation corrections are amongst some of the preprocessing steps performed on the utilized",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "datasets. Glove-based word embedding is applied to the data to perform data augmentation and feature",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "extraction. Experiments are conducted with various utilized DL-models’ combinations where RoBERT-LSTM",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "models yielded 91.37% accuracy, RoBERT-BiLSTM model yielded 91.21% accuracy, RoBERT-LSTM model",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "yielded 91.37% accuracy and RoBERT-GRU achieved 91.52% accuracy. Tan et al. [29] derived a large amount",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "of textual data from various web sources, blogs, networks, and search mediums during the COVID tenure.",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Language, geographical, time, and creator filtering are performed for opinion mining. Noise filtering,",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "tokenization, and normalization are performed for aspect mining. Opinion classification is then performed",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "using supervised, semi and non-supervised ML algorithms. The proposed work shows that ML models show",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "promising accuracy in the classification of opinions within sentiments. Qureshi et al. [30] applied SA to Roman",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Urdu upon reviews dataset collected from YouTube. The reviews were based on comments given against",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "different Pakistani and Indian songs. After applying mandatory preprocessing steps, the data from different",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "files are integrated into a single comprehensive file and annotated as either positive or negative by the language",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "experts. Finally, the classification is carried out using several ML algorithms such as NB, SVM, LR, DT, KNN,",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "and CNN. Among all the applied models, LR turned out to be the best-performing model with an accuracy of",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "92.25% while the CNN performed worst with an accuracy of just 66.54% when applied to a total of 24,000",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "and the other contains consumer reviews for random products. The datasets are cleaned and preprocessed with",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "steps such as stop words and null values removal, data balancing, tokenization, and lemmatization. The dataset",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "reviews are labeled as positive and negative based on their star ratings out of 5 stars. Features are extracted",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "using N-gram methods TF-IDF, BoW, and word embedding models GloVe, and Word2vec. The extricated",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "features are classified using several ML algorithms including SVM, NB, RF, LR, DL-based CNN, and LSTM.",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "For performance comparison of model performance with current data, a transformer-based BERT model is also",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "formulated in this work that operates directly on preprocessed data and performs classification in parallel with",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "the rest of the procedure. The results of standard ML and DL approaches with BERT are compared and",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "analyzed with the help of certain evaluation metrics. Figure 1 shows the architectural framework for the",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "proposed model. All mentioned steps are discussed in their specific sections.",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "3.1. Data acquisition and pre-processing",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "Two publicly available datasets from Kaggle are obtained for this work. Both datasets are based on",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "reviews posted on Amazon products. The first dataset (D1) contains reviews posted for locked and unlocked cell",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "phones belonging to ten brands such as ASUS, Google, Xiaomi, Sony, Samsung, and others. It contains important",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "information such as title, brand, URL, reviews, ratings, and price of cell phones. The second dataset (D2) is the",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "combination of the cell phone reviews dataset (D1) with another dataset comprising reviews posted by 34,000",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "customers against random Amazon products including electronic appliances, gadgets, and products mostly.",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "It contains main data attributes such as brand, category, manufacturer, reviews, date of review posting, and date",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "of it being seen. Table 1 provides an overview of data statistics after exploratory data analysis (EDA). EDA on",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "both datasets is performed after using preprocessing techniques including tokenization and lemmatization.",
+      "page": 5
+    },
+    {
+      "level": "H3",
+      "text": "Table 1. Dataset statistics",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "Figure 1. Architecture for the proposed Amazon product reviews analysis and classification",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "3.2. Feature extraction",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "The model cannot work on or categorize the data in its regular textual form after data preparation and",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "balancing, which is why it must be translated into mathematical and vector format so that the ML and DL",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "algorithms can interpret it. The vectorial data retrieved from the text is then fed into the ML and DL models as",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "features. A complete representation of the words in the corpus must be extracted, and there are several methods",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "for doing so. Deep and textual feature extrication approaches such as word embedding, and N-gram methods are",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "used to extract the features. GloVe from Sandford NLP and Word2vec from Google news vectors are utilized as",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "pre-trained word embeddings in the proposed study. BoW and TF-IDF are used to extract N-gram-based features.",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "These approaches are addressed below with the planned study.",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "3.2.1. Textual features",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "Any series of word tokens in each data is referred to as an N-gram, with 𝑛 =1 denoting a unigram,",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "𝑛=2",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "denoting a bigram, and so on. An N-gram model can calculate and forecast the likelihood of N-grams",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "in a data corpus. Such models are effective in text classification problems where the number of particular terms",
+      "page": 6
+    },
+    {
+      "level": "H3",
+      "text": "contained in the vocabulary from the corpus must be counted [26]. The TF-IDF is a metric that assesses how",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "𝑤 =𝑓 𝑥log( ) (1)",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "Where, 𝑤 indicates the weight of data points 𝑚 and 𝑛 , 𝑓 is used to compute the occurrence",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "𝑚 𝑛 𝐾",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "the compilation, 𝑙𝑜𝑔( ) is used for 𝑙𝑜𝑔 computation of target data point 𝑚 in all the dataset documents. BoW",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "𝑑 = 𝑤 𝑥 𝑤 (2)",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "∑",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "Where 𝑑 indicates the document in which target data point 𝑚 is present. 𝑤 assigns the weights to the",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "𝑚 𝑛 𝑤 𝑚",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "GloVe is an unsupervised learning technique that uses the global word co-occurrence matrix to extract word",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "embeddings from an input data corpus. When applied to any data, it directly obtains information about the words",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "occurring frequently in that data and maps the words into vector spaces [30]. It is trained on global statistics of",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "words included in a large corpus compiled from online sources and when applied to any data, it obtains",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "information about the words occurring frequently in that data and maps the words into vector spaces. It has been",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "frequently used to derive features and pass them on to classification models in text classification challenges.",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "As (3) shows, it is based on the bilinear (LBL) model, which operates on the idea of weighted least squares [31].",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "(3)",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "Here, 𝑤 , 𝑤 is the weightage of target and reference data points and 𝑝𝑟𝑜𝑏(𝑚|𝑛) is their probability",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "of occurrence. The working logic behind GloVe is represented in (4).",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "(4)",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "Where, is the least-squares mapping function between the data points and shows the",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "weights for points concerning time . Word2vec is a word embedding approach that uses the skip-gram method",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "to provide this capability and is based on shallow deep networks. Based on the frequency of documents and",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "their co-occurrence matrix, it builds vectors of textual data included in the corpus. The skip-gram approach is",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "used by Word2vec to execute computations, as shown in (5).",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "(5)",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "Where is the size of the corpus, pos is the position of a word in data ,",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "𝐾 𝑤𝑑 𝐾 log𝑝𝑟𝑜𝑏(𝑤𝑑 |𝑤𝑑 )",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "is the log of 𝑤𝑑 as it keeps on updating its positions and locales within the document [34]. The preprocessed",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "data is also sent to both the GloVe and Word2vec models in the proposed study, and the features created by them",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "are then given a customized CNN as well as LSTM where the results are assessed.",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "3.3. Transformer-based mode",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "Deep models based on transformers are currently commonly utilized in NLP. For user-based",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "e-commerce product reviews classification in the proposed study, BERT is implemented. The encoder and",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "decoder are the two major components of a transformer. The encoder takes words as input and generates",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "embedding that encapsulates the meaning of the word, while the decoder uses the encoder’s embedding to",
+      "page": 7
+    },
+    {
+      "level": "H3",
+      "text": "construct the next word until the sentence is completed. To effectively extract a contextual representation of",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "steps on D2. The sections below will cover the experiments conducted on D1 followed by D2 and then provide",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "an elaborative comparison of both.",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "In the first experiment conducted on D1, textual features are given to four ML classifiers SVM, RF,",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "LR, and MNB. The results evaluated by performance evaluation measures (PEM) such as accuracy, precision,",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "recall, and f1-score, are shown in Table 2. The experiments are carried out in Python, and the package used to",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "integrate the model into the experimental space is called the “sklearn” ensemble. All the models are trained",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "and evaluated using 90% and 10% of the dataset respectively.",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "Table 2. Classification results of ML models with textual features of D1",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "Figure 2 shows a graphical performance comparison of all four ML models with textual features derived",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "from D1. The LR and MNB classifiers provide the highest accuracies of 88.47% and 87.18% with TF-IDF and",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "BoW features respectively. Figure 3 shows the performance comparison for both LR and MNB. The RF classifier",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "yields the lowest results while only achieving accuracies of 82.53% and 82.32% on TF-IDF and BoW features",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "respectively. RF also has the lowest precision, f1-score and recall as compared to the rest. Apart from RF, other",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "classifiers perform almost alike with a small difference with not a huge accuracy gap between TF-IDF and BoW",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "derived features.",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "In the second experiment conducted on D1, the two DL models including CNN and LSTM are provided",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "with the word embedding features extracted by both GloVe and Word2vec models. CNN, which is selected for",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "speed and accuracy is trained and tested on the same data split utilized in ML algorithms. The number of epochs",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "varied from 5 to 100 and a batch size of 32 is maintained for CNN training. In the case of LSTM, the batch size",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "is kept at 32, epochs are set to 5, while the main layers that constitute LSTM are embedding, dense and SoftMax",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "layers. Apart from providing the word embeddings to these ML and DL models, the preprocessed dataset is given",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "as an input to BERT, which derives its encodings from the preprocessed D1, takes as input the preprocessed D1,",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "extracts embedding representations from it, and maps transformations on it. Finally, it decodes the representations",
+      "page": 8
+    },
+    {
+      "level": "H3",
+      "text": "back into vocabulary-based representations and uses its deep layers to perform classification. The same data split",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "Figure 3. Performance comparison of best performing LR and MNB models on D1",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "As evident from Table 3 that CNN performs better as compared to LSTM in terms of all PEMs when",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "applied to word embeddings derived from D1. CNN excels in terms of accuracy and other PEMs for both GloVe",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "and Word2vec features. On the other hand, BERT outperforms both CNN and LSTM and achieves the highest",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "performance rates with an accuracy of 90%. BERT is the best-performing model on D1 as its performance",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "dominates that of ML and DL model’s performance concerning accuracy and other PEMs. Figure 4 shows the",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "graphical visualization of the accuracy and loss of CNN in Figure 4(a) and Figure 4(b) respectively.",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "Table 3. Classification results of DL algorithms with word embedding features of D1",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "As shown in Figure 5 CNN initiates with less accuracy and a higher loss rate while training on both",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "GloVe and Word2vec features but then goes on to achieve a considerably higher accuracy rate. The reason for",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "that is that CNN gradually trains on the input data, starts learning deep features from the data using its deep layers.",
+      "page": 9
+    },
+    {
+      "level": "H3",
+      "text": "As time progresses and layers get more and more trained, the predictions start becoming better and loss rate",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "After the implementation of all steps included in the proposed methodology on D1, the same steps are",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "repeated for D2. In the first experiment conducted on D2, textual features are given to four ML classifiers SVM,",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "RF, LR, and MNB. The results evaluated by performance evaluation metrics accuracy, precision, recall, and",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "f1-score, are shown in Table 4. These experiments are also carried out in Python with the “sklearn” ensemble",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "integration package. All the models are trained and evaluated using 90% and 10% of the dataset, respectively.",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "Figure 7 shows a graphical performance comparison of all four ML models with textual features derived",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "from D2. The SVM and LR classifiers provide the highest accuracy rates of 94.02% and 93.99% with Figure 8",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "shows the performance comparison of both LR and SVM when applied to textual features of D2. TF-IDF and",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "BoW features, respectively and hence are the best-performing models. All the ML models perform a lot better in",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "general in the case of D2 as compared to D1 as can be observed by comparing Table 2 and Table 3. The reason",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "could be that D2 is better prepared and engineered as compared to D1.",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "Same to the experiments conducted on D1, the two DL models including CNN and LSTM are",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "provided with the word embedding features extracted by both GloVe and Word2vec models from D2. In the",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "case of CNN, the number of epochs is increased from 5 to 10 while a batch size of 32 is maintained. In the case",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "of LSTM, the batch size is kept at 32, epochs are set to 5, and the same deep layers are maintained. In parallel",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "to that, the preprocessed D2 is fed into BERT for the derivation of transformer-based representations while the",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "same number of epochs and batch size are maintained. Table 5 shows the results of CNN, LSTM, and BERT",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "when word embedding features and processed D2 are given to them, respectively.",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "As evident from Table 5 CNN outperforms both LSTM and BERT for both GloVe and Word2vec",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "features. It achieves an accuracy of 97.12% for GloVe and 96.66% for Word2vec features which is",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "considerably superior to its counterparts. The reason for such an increment in performance over D2 could be",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "the preparation and feature engineering of D2 as compared to D1. This better preparation and engineering led",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "to an increment in the performance of all ML models, DL-based CNN, LSTM as well as BERT in the case of",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "D2 whereas all the models were limited to a maximum of 90% accuracy in case of D1. Figure 9 shows the",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "graphical visualization of the accuracy and loss of CNN in Figure 9(a) and Figure 9(b). CNN started with a",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "high loss rate, eventually learns deep features and improves its performance over time and epochs.",
+      "page": 10
+    },
+    {
+      "level": "H3",
+      "text": "Table 4. Classification results of ML models with textual features of D2",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "(a) (b)",
+      "page": 11
+    },
+    {
+      "level": "H2",
+      "text": "Figure 5. Accuracy and loss ratio visualization of LSTM with (a) GloVe features of D1 and (b) Word2vec",
+      "page": 11
+    },
+    {
+      "level": "H2",
+      "text": "embedding features of D1",
+      "page": 11
+    },
+    {
+      "level": "H2",
+      "text": "(a) (b)",
+      "page": 11
+    },
+    {
+      "level": "H2",
+      "text": "Figure 6. BERT model with (a) training accuracy on D1 and (b) loss graph on D1",
+      "page": 11
+    },
+    {
+      "level": "H2",
+      "text": "Figure 10 shows the accuracy and loss ratio for the LSTM model in Figure10(a) and Figure 10(b)",
+      "page": 12
+    },
+    {
+      "level": "H2",
+      "text": "respectively, when trained and evaluated on word embedding features derived from D2 while maintaining the",
+      "page": 12
+    },
+    {
+      "level": "H2",
+      "text": "same settings as in the case of D1. Here again LSTM starts with a high loss rate and minimum accuracy and",
+      "page": 12
+    },
+    {
+      "level": "H2",
+      "text": "eventually excels in terms of performance. The reason for that is that LSTM gradually trains on the input data,",
+      "page": 12
+    },
+    {
+      "level": "H2",
+      "text": "starts learning deep features from the data using its deep layers. As time progresses and layers get more and",
+      "page": 12
+    },
+    {
+      "level": "H2",
+      "text": "more trained, the predictions start becoming better and loss rate significantly falls. DL models perform better",
+      "page": 12
+    },
+    {
+      "level": "H2",
+      "text": "on larger datasets as they have much input to learn their features from so the more data is given to them, better",
+      "page": 12
+    },
+    {
+      "level": "H2",
+      "text": "prediction starts showing up.",
+      "page": 12
+    },
+    {
+      "level": "H3",
+      "text": "(a) (b)",
+      "page": 12
+    },
+    {
+      "level": "H3",
+      "text": "Figure 9. Accuracy and loss ratio visualization of CNN with (a) GloVe features of D2 and (b) Word2vec",
+      "page": 12
+    },
+    {
+      "level": "H3",
+      "text": "embedding features of D2",
+      "page": 12
+    },
+    {
+      "level": "H3",
+      "text": "After the implementation of CNN and LSTM upon D2’s word embedding features. The preprocessed",
+      "page": 12
+    },
+    {
+      "level": "H3",
+      "text": "D2 is given to BERT to compare the performance of the ML and DL models performance with it. BERT takes in",
+      "page": 12
+    },
+    {
+      "level": "H2",
+      "text": "(a) (b)",
+      "page": 13
+    },
+    {
+      "level": "H2",
+      "text": "Figure 10. Accuracy and loss ratio visualization of LSTM model with (a) GloVe features of D2 and",
+      "page": 13
+    },
+    {
+      "level": "H2",
+      "text": "(b) Word2vec embedding features of D2",
+      "page": 13
+    },
+    {
+      "level": "H2",
+      "text": "(a) (b)",
+      "page": 13
+    },
+    {
+      "level": "H3",
+      "text": "Figure 11. BERT model for (a) training accuracy on D2 and (b) loss graph on D2",
+      "page": 13
+    },
+    {
+      "level": "H3",
+      "text": "5. DISCUSSION",
+      "page": 13
+    },
+    {
+      "level": "H3",
+      "text": "All the experiments performed for the proposed work are discussed in detail in the preceding section",
+      "page": 13
+    },
+    {
+      "level": "H3",
+      "text": "along with the results. It is quite evident from experiments conducted on D1 that ML models perform better in",
+      "page": 13
+    },
+    {
+      "level": "H3",
+      "text": "general as compared to DL models in terms of accuracy and other PEMs. Although BERT outperforms both",
+      "page": 13
+    },
+    {
+      "level": "H3",
+      "text": "ML and DL models regarding the accuracy of 90% as well as all other PEMs. The accuracy comparison of",
+      "page": 13
+    },
+    {
+      "level": "H3",
+      "text": "ML, DL models, and BERT when applied to D1, is visualized in Figure 12.",
+      "page": 13
+    },
+    {
+      "level": "H2",
+      "text": "Figure 12. Accuracy comparison of ML, DL Figure 13. Accuracy Comparison of ML, DL",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "models, and BERT on D1 models, and BERT on D2",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "Figure 14. Accuracy comparison of ML models Figure 15. Accuracy comparison of DL models over",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "over D1 and D2 D1 and D2",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "the overall accuracy is not exceeding 90%. In future we might have to apply much better methodologies for",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "data cleaning, pruning and feature engineering and also optimize ML, DL models and BERT according to them",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "to increase our overall accuracy.",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "In case of D2, the DL-based CNN achieves an accuracy of 97.12% on deep features extracted by",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "GloVE and Word2vec, outperforming ML models by a large margin and BERT by a significant margin. This",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "proves that D1 and D2 have provided different results indicating that their preparation or feature extraction has",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "a lot of difference. We need to study the difference closely and apply the best result deriving methodology in",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "future works. To derive much better results, we can further enhance our CNN model, BERT models and look",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "to apply generative pre-trained transformer (GPT) for much better results.",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "ACKNOWLEDGEMENTS",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "The authors would like to thank Arab Open University research group number: “AOURG-2023-020”,",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "Saudi Arabia for supporting this study.",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "REFERENCES",
+      "page": 15
+    },
+    {
+      "level": "H3",
+      "text": "BIOGRAPHIES OF AUTHORS",
+      "page": 16
+    }
+  ]
+}
